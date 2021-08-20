@@ -57,7 +57,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5592951420039029543, guid: 01149cae41857f44ca41e74901a75012, type: 3}
       propertyPath: m_Name
-      value: Tile RoadCorner
+      value: Tile_RoadCorner
+      objectReference: {fileID: 0}
+    - target: {fileID: 8710494843700409239, guid: 01149cae41857f44ca41e74901a75012, type: 3}
+      propertyPath: isPlaceable
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01149cae41857f44ca41e74901a75012, type: 3}

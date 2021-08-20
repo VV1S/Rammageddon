@@ -9,7 +9,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1111151577699354056, guid: 49de1334d223af84fac4bcd5f8eddaf4, type: 3}
       propertyPath: m_Name
-      value: Tile RoadCorner 270
+      value: Tile_RoadCorner 270
+      objectReference: {fileID: 0}
+    - target: {fileID: 4185068080947369336, guid: 49de1334d223af84fac4bcd5f8eddaf4, type: 3}
+      propertyPath: isPlaceable
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7551490086977671260, guid: 49de1334d223af84fac4bcd5f8eddaf4, type: 3}
       propertyPath: m_RootOrder
