@@ -29,6 +29,7 @@ public class CoordinateLabel : MonoBehaviour
         {
             DisplayCoordinates();
             UpdateObjectName();
+            label.enabled = true;
         }
 
         SetLabelColor();
