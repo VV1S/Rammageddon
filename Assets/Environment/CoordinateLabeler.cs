@@ -1,11 +1,11 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
 [ExecuteAlways]
 [RequireComponent(typeof(TextMeshPro))]
-public class CoordinateLabel : MonoBehaviour
+public class CoordinateLabeler : MonoBehaviour
 {
     [SerializeField] Color defaultColor = Color.white;
     [SerializeField] Color blockedColor = Color.gray;
@@ -16,8 +16,7 @@ public class CoordinateLabel : MonoBehaviour
     Vector2Int coordinates = new Vector2Int();
     GridManager gridManager;
 
-    void Awake()
-    {
+    void Awake() {
         gridManager = FindObjectOfType<GridManager>();
         label = GetComponent<TextMeshPro>();
         label.enabled = false;
@@ -27,59 +26,55 @@ public class CoordinateLabel : MonoBehaviour
 
     void Update()
     {
-        if (!Application.isPlaying)
-        {
-            DisplayCoordinates();
-            UpdateObjectName();
-            label.enabled = true;
-        }
+       if(!Application.isPlaying)
+       {
+           DisplayCoordinates();
+           UpdateObjectName();
+           label.enabled = true;
+       }
 
-        SetLabelColor();
-        ToggleLabels();
+       SetLabelColor();
+       ToggleLabels();
     }
 
     void ToggleLabels()
     {
-        if (Input.GetKeyDown(KeyCode.C))
+        if(Input.GetKeyDown(KeyCode.C))
         {
             label.enabled = !label.IsActive();
         }
     }
 
-
     void SetLabelColor()
     {
-            if (gridManager == null) { return; }
+        if(gridManager == null) { return; }
 
         Node node = gridManager.GetNode(coordinates);
 
-        if (node == null) { return; }
+        if(node == null) { return; }
 
-        if (!node.isWalkable)
+        if(!node.isWalkable)
         {
             label.color = blockedColor;
         }
-        else if (node.isPath)
+        else if(node.isPath)
         {
             label.color = pathColor;
         }
-        else if (node.isExplored)
+        else if(node.isExplored)
         {
             label.color = exploredColor;
         }
         else
         {
-
             label.color = defaultColor;
         }
     }
 
-    void DisplayCoordinates()
+    void DisplayCoordinates() 
     {
-        if(gridManager ==null)
-        {
-            return;
-        }
+        if(gridManager == null) { return; }
+
         coordinates.x = Mathf.RoundToInt(transform.parent.position.x / gridManager.UnityGridSize);
         coordinates.y = Mathf.RoundToInt(transform.parent.position.z / gridManager.UnityGridSize);
 
