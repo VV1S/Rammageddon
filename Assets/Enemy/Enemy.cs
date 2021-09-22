@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,27 +9,20 @@ public class Enemy : MonoBehaviour
 
     Bank bank;
 
-    // Start is called before the first frame update
     void Start()
     {
-        bank = FindObjectOfType<Bank>();
+        bank = FindObjectOfType<Bank>();        
     }
 
     public void RewardGold()
     {
-        if(bank==null)
-        {
-            return;
-        }
+        if(bank == null) { return; }
         bank.Deposit(goldReward);
     }
 
     public void StealGold()
     {
-        if (bank == null)
-        {
-            return;
-        }
-        bank.Withdraw(goldReward);
+        if(bank == null) { return; }
+        bank.Withdraw(goldPenalty);
     }
 }
